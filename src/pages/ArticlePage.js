@@ -6,7 +6,7 @@ const ArticlePage = ({ match }) => {
   const name = match.params.name;
   const article = articleContent.find((article) => article.name === name);
 
-  if (!article) return <h1>{NotFoundPage}</h1>;
+  if (!article) return <NotFoundPage />;
   const otherArticles = articleContent.filter(
     (article) => article.name !== name
   );
