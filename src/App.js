@@ -1,9 +1,10 @@
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import AboutPage from "./pages/AboutPage";
 import ArticlesListPage from "./pages/ArticlesListPage";
 import ArticlePage from "./pages/ArticlePage";
 import NavBar from "./NavBar";
+import NotFoundPage from "./pages/NotFoundPage";
 import "./App.css";
 
 function App() {
@@ -12,10 +13,13 @@ function App() {
       <div className="App">
         <NavBar />
         <div id="page-body">
-          <Route path="/" component={Homepage} exact />
-          <Route path="/about" component={AboutPage} />
-          <Route path="/articles-list" component={ArticlesListPage} />
-          <Route path="/article/:name" component={ArticlePage} />
+          <Switch>
+            <Route path="/" component={Homepage} exact />
+            <Route path="/about" component={AboutPage} />
+            <Route path="/articles-list" component={ArticlesListPage} />
+            <Route path="/article/:name" component={ArticlePage} />
+            <Route component={NotFoundPage} />
+          </Switch>
         </div>
       </div>
     </Router>
